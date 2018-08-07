@@ -38,7 +38,8 @@ import com.json.tanping.tpaoplib.anniotions.Before;
 public class DemoAspect {
 
     @Before("aop")
-    public void before(){
+    public void before(String str){
+        //todo
         Log.d("Aspectaop","start -- before");
     }
 

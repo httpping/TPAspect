@@ -29,7 +29,6 @@ import com.json.tanping.tpaoplib.anniotions.Before;
 import com.json.tanping.tpaoplib.anniotions.Pointcut;
 
 import java.lang.annotation.Annotation;
-import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import java.util.LinkedList;
 import java.util.List;
@@ -106,7 +105,6 @@ class AspectAround{
      * @return 值
      */
     public  static Annotation aspectAround(Method method) {
-
         Annotation[] annotations = method.getDeclaredAnnotations();
         if (annotations !=null || annotations.length != 0){
             for (Annotation annotation : annotations){

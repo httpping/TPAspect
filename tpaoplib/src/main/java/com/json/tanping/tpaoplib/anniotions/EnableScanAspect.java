@@ -37,9 +37,8 @@ import java.lang.annotation.Target;
  * 创建时间:2018/8/7 8:17
  */
 @Retention(RetentionPolicy.RUNTIME)
-@Target({ElementType.METHOD})
+@Target({ElementType.TYPE})
 @Inherited
-public @interface Pointcut {
-    String before() default "";
-    String after() default "default";
+public @interface EnableScanAspect {
+    boolean value() default true;
 }

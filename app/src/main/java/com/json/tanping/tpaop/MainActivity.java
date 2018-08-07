@@ -1,12 +1,12 @@
 package com.json.tanping.tpaop;
 
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.widget.TextView;
 
 import com.json.tanping.tpaoplib.AopProxyFactory;
-import com.json.tanping.tpaoplib.anniotions.Before;
+import com.json.tanping.tpaoplib.anniotions.EnableScanAspect;
 import com.json.tanping.tpaoplib.anniotions.Pointcut;
 
 /**
@@ -21,9 +21,8 @@ public class MainActivity extends AppCompatActivity implements IAop {
 
 
 
-        aop =  AopProxyFactory.createProxy(this,new DemoAspect());
+        aop =  AopProxyFactory.createProxy(this,new DemoAspect(),IAop.class);
         aop.say("hello");
-
 //        Log.d("hello","end ");
 
         TextView tv = findViewById(R.id.tv_demo);
@@ -37,9 +36,7 @@ public class MainActivity extends AppCompatActivity implements IAop {
         Log.d("hello","say hello  :" +str + " : " +Thread.currentThread().getName());
         TextView tv = findViewById(R.id.tv_demo);
         tv.setText("xxxddd");
-
     }
-
 
 
 
