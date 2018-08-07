@@ -42,10 +42,27 @@ public class DemoAspect {
         //todo
         Log.d("Aspectaop","start -- before");
     }
+    @Before("aop")
+    public void before2(String str){
+        //todo
+        Log.d("Aspectaop","start -- before2");
+    }
 
 
     @After("aop")
-    public void after(){
+    public void ga(String str){
         Log.d("Aspectaop","after -- after");
+    }
+    @After("aop")
+    public void fb(String str){
+        Log.d("Aspectaop","after -- after2");
+    }
+//    @After("aop")
+    public void gw(String str){
+        Log.d("Aspectaop","after -- after3");
+    }
+//    @After("aop")
+    public void ss(String str){
+        Log.d("Aspectaop","after -- after3");
     }
 }

@@ -24,6 +24,11 @@ package com.json.tanping.tpaoplib;
 
 */
 
+import com.json.tanping.tpaoplib.anniotions.EnableScanAspect;
+import com.json.tanping.tpaoplib.anniotions.Pointcut;
+
+import java.lang.annotation.Annotation;
+import java.lang.reflect.Method;
 import java.lang.reflect.Proxy;
 
 /**
@@ -49,7 +54,30 @@ public class AopProxyFactory {
         if (!cls[0].isInterface()) {
             throw new IllegalArgumentException("API declarations must be interfaces.");
         }
+        if (!aspectEnable(t.getClass())){
+            return t;
+        }
+
         return (T) Proxy.newProxyInstance(Thread.currentThread().getContextClassLoader(),cls,new AopInvocationHandler(t,aspect));
+    }
+
+
+    /**
+     * 是否开启切面
+     * @param cls 值
+     * @return 值
+     */
+    private   static boolean aspectEnable(Class cls) {
+        Annotation[] annotations = cls.getDeclaredAnnotations();
+        if (annotations !=null || annotations.length != 0){
+            for (Annotation annotation : annotations){
+                if (annotation.annotationType().equals(EnableScanAspect.class)) {
+                    EnableScanAspect enableScanAspect = (EnableScanAspect) annotation;
+                    return enableScanAspect.value();
+                }
+            }
+        }
+        return  false;
     }
 
 }

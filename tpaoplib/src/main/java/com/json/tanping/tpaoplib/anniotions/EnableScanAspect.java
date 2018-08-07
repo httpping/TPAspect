@@ -32,7 +32,7 @@ import java.lang.annotation.Target;
 
 /**
  * 项目名称: YOSHOP
- * 类描述： 切点
+ * 类描述： 切点是否启动
  * 创建人：Created by tanping
  * 创建时间:2018/8/7 8:17
  */

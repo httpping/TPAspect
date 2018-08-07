@@ -12,15 +12,13 @@ import com.json.tanping.tpaoplib.anniotions.Pointcut;
 /**
  * @author tanping
  */
+@EnableScanAspect(value = false)
 public class MainActivity extends AppCompatActivity implements IAop {
     IAop aop;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
-
-
         aop =  AopProxyFactory.createProxy(this,new DemoAspect(),IAop.class);
         aop.say("hello");
 //        Log.d("hello","end ");
@@ -30,9 +28,10 @@ public class MainActivity extends AppCompatActivity implements IAop {
     }
 
 
-    @Pointcut(before = "aop",after = "aop")
     @Override
-    public void say(String str) {
+    public  void say(String str) {
+        Log.d("Aspectaop","start -- say");
+
         Log.d("hello","say hello  :" +str + " : " +Thread.currentThread().getName());
         TextView tv = findViewById(R.id.tv_demo);
         tv.setText("xxxddd");
