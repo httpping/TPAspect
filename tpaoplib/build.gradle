@@ -1,8 +1,8 @@
 apply plugin: 'com.android.library'
+apply plugin: 'com.novoda.bintray-release'
 
 android {
     compileSdkVersion 27
-
 
 
     defaultConfig {
@@ -30,4 +30,23 @@ dependencies {
 //    testImplementation 'junit:junit:4.12'
 //    androidTestImplementation 'com.android.support.test:runner:1.0.2'
 //    androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
+}
+
+//gradlew clean build bintrayUpload -PbintrayUser=httpping -PbintrayKey=363bcd47dd3557230d01c1fb525c0a02e3ae8b92 -PdryRun=false
+
+publish {
+    repoName = 'TpAop'
+    userOrg = 'gbtp'//bintray.com用户名
+    groupId = "gb.tp.tpaop"//jcenter上的路径
+    artifactId = 'TpAop'//项目名称
+    publishVersion = '1.0.0'//版本号
+    desc = 'TpAop aspect'
+    website = 'https://github.com/httpping/TPAspect'
+}
+
+tasks.withType(JavaCompile){
+    options.encoding = "UTF-8"
+}
+tasks.withType(Javadoc) {
+    options.encoding = "UTF-8"
 }

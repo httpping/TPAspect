@@ -7,12 +7,11 @@ import android.widget.TextView;
 
 import com.json.tanping.tpaoplib.AopProxyFactory;
 import com.json.tanping.tpaoplib.anniotions.EnableScanAspect;
-import com.json.tanping.tpaoplib.anniotions.Pointcut;
 
 /**
  * @author tanping
  */
-@EnableScanAspect(value = false)
+@EnableScanAspect
 public class MainActivity extends AppCompatActivity implements IAop {
     IAop aop;
     @Override
@@ -21,10 +20,10 @@ public class MainActivity extends AppCompatActivity implements IAop {
         setContentView(R.layout.activity_main);
         aop =  AopProxyFactory.createProxy(this,new DemoAspect(),IAop.class);
         aop.say("hello");
-//        Log.d("hello","end ");
+        Log.d("hello","end ");
 
         TextView tv = findViewById(R.id.tv_demo);
-//        tv.setText("xxx");
+///        tv.setText("xxx");
     }
 
 

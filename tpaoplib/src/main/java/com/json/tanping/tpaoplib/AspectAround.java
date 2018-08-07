@@ -75,7 +75,7 @@ class AspectAround{
      * @param aspect 切面
      * @param handler handler
      */
-    public static <T> void analysis(Object aspect, AopInvocationHandler handler){
+    public static  void analysis(Object aspect, AopInvocationHandler handler){
         //分析 aspect
         Method[] methods = aspect.getClass().getDeclaredMethods();
         if (methods!=null){

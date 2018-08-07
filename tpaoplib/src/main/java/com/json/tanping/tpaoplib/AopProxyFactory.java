@@ -44,8 +44,6 @@ public class AopProxyFactory {
         if (t.getClass().getInterfaces().length==0) {
             throw new IllegalArgumentException("API declarations must be interfaces.");
         }
-        AopInvocationHandler handler = new AopInvocationHandler(t,aspect);
-        AspectAround.analysis(aspect,handler);
 
         return  createProxy(t,aspect,t.getClass().getInterfaces());
     }
