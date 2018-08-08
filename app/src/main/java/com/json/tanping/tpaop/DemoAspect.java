@@ -38,10 +38,11 @@ import com.json.tanping.tpaoplib.anniotions.Before;
 public class DemoAspect {
 
     @Before("aop")
-    public void before(String str,int i){
+    public void before(String str){
         //todo
         Log.d("Aspectaop","start -- before :" + str);
     }
+
     @Before("aop")
     public void before2(String str){
         //todo
@@ -62,7 +63,7 @@ public class DemoAspect {
         Log.d("Aspectaop","after -- after3");
     }
 //    @After("aop")
-    public void ss(String str){
+    public void xx(String str){
         Log.d("Aspectaop","after -- after3");
     }
 }

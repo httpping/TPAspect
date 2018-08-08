@@ -11,7 +11,7 @@ import com.json.tanping.tpaoplib.anniotions.EnableScanAspect;
 /**
  * @author tanping
  */
-@EnableScanAspect
+@EnableScanAspect(value = true)
 public class MainActivity extends AppCompatActivity implements IAop {
     IAop aop;
     @Override
@@ -30,7 +30,6 @@ public class MainActivity extends AppCompatActivity implements IAop {
     @Override
     public  void say(String str) {
         Log.d("Aspectaop","start -- say");
-
         Log.d("hello","say hello  :" +str + " : " +Thread.currentThread().getName());
         TextView tv = findViewById(R.id.tv_demo);
         tv.setText("xxxddd");
