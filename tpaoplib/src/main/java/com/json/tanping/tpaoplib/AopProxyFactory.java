@@ -39,6 +39,7 @@ import java.lang.reflect.Proxy;
  */
 public class AopProxyFactory {
 
+    public static boolean isOpenDebug = false;
 
     public static  <T> T createProxy(T t,Object aspect){
         if (t.getClass().getInterfaces().length==0) {
@@ -53,6 +54,9 @@ public class AopProxyFactory {
             throw new IllegalArgumentException("API declarations must be interfaces.");
         }
         if (!aspectEnable(t.getClass())){
+            return t;
+        }
+        if (isOpenDebug){
             return t;
         }
 

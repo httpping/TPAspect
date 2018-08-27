@@ -11,7 +11,7 @@ import com.json.tanping.tpaoplib.anniotions.EnableScanAspect;
 /**
  * @author tanping
  */
-@EnableScanAspect(value = true)
+@EnableScanAspect(value = false)
 public class MainActivity extends AppCompatActivity implements IAop {
     IAop aop;
     @Override
