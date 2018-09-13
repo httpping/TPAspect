@@ -39,7 +39,7 @@ publish {
     userOrg = 'gbtp'//bintray.com用户名
     groupId = "gb.tp.tpaop"//jcenter上的路径
     artifactId = 'TpAop'//项目名称
-    publishVersion = '1.0.2'//版本号
+    publishVersion = '1.0.3'//版本号
     desc = 'TpAop aspect'
     website = 'https://github.com/httpping/TPAspect'
 }
