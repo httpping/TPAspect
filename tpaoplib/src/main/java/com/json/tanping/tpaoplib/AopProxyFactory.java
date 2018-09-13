@@ -61,7 +61,7 @@ public class AopProxyFactory {
         }
         //for is not visible from class loader
         try {
-            return (T) Proxy.newProxyInstance(Thread.currentThread().getContextClassLoader(),cls,new AopInvocationHandler(t,aspect));
+            return (T) Proxy.newProxyInstance(t.getClass().getClassLoader(),cls,new AopInvocationHandler(t,aspect));
         } catch (Exception e) {
             e.printStackTrace();
             return t;
